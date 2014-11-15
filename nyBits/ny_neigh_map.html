@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>NY Bits - New York Neighbourhoods</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<link rel="stylesheet" type="text/css" href="ny_neigh_map.css" />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+
+
+</head>
+
+<body>
+
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+<script src='listing.js'></script>
+
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1Ijoic2t1YWxvcyIsImEiOiJUaXo3NjNJIn0.MKxvY63QeYiFnj0lCYPmhA';
+
+// Create map
+var map = L.map('map').setView([40.754748, -74.000223], 13);
+map.maxZoom = 17;
+//map.addControl(L.mapbox.legendControl());
+
+// Create Stamen layer
+var stamenLayer = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+ });
+//stamenLayer.setOpacity(0.5);
+
+// NY neighbourhoods layer
+var neighLayer = L.tileLayer('https://{s}.tiles.mapbox.com/v3/skualos.uoxajvck/{z}/{x}/{y}.png');
+neighLayer.setOpacity(1);
+// nyNeighTiles.addTo(map);
+// nyNeighTiles.setOpacity(1.5);
+// nyNeighTiles.minZoom(9)
+
+// var baseMaps = {
+//     "stamenLayer": stamenLayer
+// };
+
+// var overlayMaps = {
+//     "neighLayer": neighLayer
+// };
+
+// L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+stamenLayer.addTo(map);
+neighLayer.addTo(map);
+
+var nprGrid = L.mapbox.gridLayer('skualos.uoxajvck').addTo(map);
+
+var markers = new L.MarkerClusterGroup();
+
+for (var i = 0; i < listing.length; i++) {
+    var a = listing[i];
+    var title = a[2];
+    var marker = L.marker(new L.LatLng(a[0], a[1]), 
+        {
+        icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
+        title: title
+        });
+    //console.log(i);
+    marker.bindPopup(title);
+    markers.addLayer(marker);
+}
+
+markers.addTo(map);
+// var willLayer = L.mapbox.tileLayer('https://{s}.tiles.mapbox.com/v3/skorasaurus.gnamp6k0{z}/{x}/{y}.png');
+// willLayer.addTo(map);
+
+//var featureLayer = L.mapbox.featureLayer().addTo(map);
+//featureLayer.loadID('skualos.h6l52il9');
+
+// you would usually use the gridControl to display a nice box in the corner
+// with your data, since we want a popup instead we won't initialize the gridControl
+
+// nprGrid.on('click', function(e) {
+//     if (!e.data) return;
+//     map.fitBounds([
+//     	[parseFloat(e.data.ymin), parseFloat(e.data.xmax)],
+//     	[parseFloat(e.data.ymax), parseFloat(e.data.xmin)]
+// 	]);
+// });
+
+// var myGridControl = L.mapbox.gridControl(nprGrid, template="<p>{{CD}}</p>");
+// myGridControl.addTo(map);
+
+    // return e.data;
+    // var popup = L.popup()
+    //     .setLatLng(e.latLng)
+    //     .setContent(e.data.link)
+    //     .openOn(map);
+    // console.log('blabla');
+
+
+</script>
+</body>
+</html>
