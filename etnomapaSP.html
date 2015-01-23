@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>A cor de Sampa | RacialDotMap-Br</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+	<link href='etnomapaSP.css' rel='stylesheet' />
+</head>
+
+<body>
+
+<div id='map'></div>
+
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1Ijoic2t1YWxvcyIsImEiOiJUaXo3NjNJIn0.MKxvY63QeYiFnj0lCYPmhA';
+
+// BASELAYERS
+var mapboxStreetTiles = L.mapbox.tileLayer('skualos.kd94ob54', {minZoom: 11, maxZoom: 17});
+var mapboxDarkTiles 	= L.mapbox.tileLayer('skualos.kp3l5nam', {minZoom: 11, maxZoom: 17});
+var mapboxSatStreets 	= L.mapbox.tileLayer('skualos.l0i6ap5l', {minZoom: 11, maxZoom: 17});
+
+var baseLayers = {
+	"Ruas": mapboxStreetTiles,
+	"Satélite" : mapboxSatStreets,
+	"Mapbox Dark": mapboxDarkTiles
+};
+
+// PONTOS
+var pontosExtTiles = L.mapbox.tileLayer('skualos.tnee8yrp', {minZoom: 11, maxZoom: 17});
+var overlays = {"Pontos": pontosExtTiles};
+
+// ADICIONAR AO MAPA
+
+var map = L.mapbox.map('map', {minZoom: 11, maxZoom: 17});
+map.addLayer(mapboxStreetTiles);
+map.addLayer(pontosExtTiles);
+map.setView([-23.6266,-46.67],11);
+
+L.control.layers(baseLayers,overlays,{collapsed: false}).addTo(map);
+
+// Criar objeto legenda
+var legend = document.getElementById('legend');
+
+
+// Adicionar HTML no objeto
+var legend = new L.Control({position: 'topright'});
+
+legend.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'legend');
+  div.innerHTML ='\
+  <div align="center"><strong>Etnias Brasileiras<br>segundo o IBGE</strong></div>\
+    <table>\
+      <tr><td><div class="circle branca"></div></td><td>Branca</td></tr>\
+      <tr><td><div class="circle preta"></div></td><td>Preta</td></tr>\
+      <tr><td><div class="circle amarela"></div></td><td>Amarela</td></tr>\
+      <tr><td><div class="circle parda"></div></td><td>Parda</td></tr>\
+      <tr><td><div class="circle indigena"></div></td><td>Indígena</td></tr>\
+    </table>\
+  <small>Fonte: <a href="http://censo2010.ibge.gov.br">Censo 2010</a></small>';
+  return div;
+};
+legend.addTo(map);
+
+</script>
+</body>
+</html>
