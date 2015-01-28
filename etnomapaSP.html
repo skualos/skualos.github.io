@@ -4,9 +4,13 @@
 	<meta charset=utf-8 />
 	<title>A cor de Sampa | RacialDotMap-Br</title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
-	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
+  <script src='tileJSONlayers.js'></script>
+  <script src='ZoomDisplay.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+  <link href='ZoomDisplay.css' rel='stylesheet' />
 	<link href='etnomapaSP.css' rel='stylesheet' />
+  <link href='http://fonts.googleapis.com/css?family=Fredoka+One&text=A Cor de Sampa' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -18,9 +22,9 @@
 L.mapbox.accessToken = 'pk.eyJ1Ijoic2t1YWxvcyIsImEiOiJUaXo3NjNJIn0.MKxvY63QeYiFnj0lCYPmhA';
 
 // BASELAYERS
-var mapboxStreetTiles = L.mapbox.tileLayer('skualos.kd94ob54', {minZoom: 11, maxZoom: 17});
-var mapboxDarkTiles 	= L.mapbox.tileLayer('skualos.kp3l5nam', {minZoom: 11, maxZoom: 17});
-var mapboxSatStreets 	= L.mapbox.tileLayer('skualos.l0i6ap5l', {minZoom: 11, maxZoom: 17});
+var mapboxStreetTiles = L.mapbox.tileLayer(mapboxStreetTilesJSON);
+var mapboxDarkTiles 	= L.mapbox.tileLayer(mapboxDarkTilesJSON);
+var mapboxSatStreets 	= L.mapbox.tileLayer(mapboxSatTilesJSON);
 
 var baseLayers = {
 	"Ruas": mapboxStreetTiles,
@@ -29,12 +33,12 @@ var baseLayers = {
 };
 
 // PONTOS
-var pontosExtTiles = L.mapbox.tileLayer('skualos.tnee8yrp', {minZoom: 11, maxZoom: 17});
+var pontosExtTiles = L.mapbox.tileLayer(pontosExtTilesJSON);
 var overlays = {"Pontos": pontosExtTiles};
 
 // ADICIONAR AO MAPA
 
-var map = L.mapbox.map('map', {minZoom: 11, maxZoom: 17});
+var map = L.mapbox.map('map', {minZoom: 11, maxZoom: 16});
 map.addLayer(mapboxStreetTiles);
 map.addLayer(pontosExtTiles);
 map.setView([-23.6266,-46.67],11);
@@ -42,10 +46,6 @@ map.setView([-23.6266,-46.67],11);
 L.control.layers(baseLayers,overlays,{collapsed: false}).addTo(map);
 
 // Criar objeto legenda
-var legend = document.getElementById('legend');
-
-
-// Adicionar HTML no objeto
 var legend = new L.Control({position: 'topright'});
 
 legend.onAdd = function (map) {
@@ -64,6 +64,36 @@ legend.onAdd = function (map) {
 };
 legend.addTo(map);
 
+// Criar objeto titulo
+var title = new L.Control({position: 'topleft'});
+
+var title_string = "A Cor de Sampa";
+var colors = new Array("rgb(255, 194, 120)","rgb(0, 0, 0)","rgb(255, 255, 0)", "rgb(202, 25, 25)", "rgb(0, 200, 0)");
+var html_string = "";
+  for (var i = 0; i < title_string.length; i++)
+      html_string += "<span style=\"color:" + colors[(i % colors.length)] + ";\">" + title_string[i] + "</span>";
+title.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'title');
+  div.innerHTML = html_string;
+  return div;
+};
+title.addTo(map);
+
 </script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56779996-1', 'auto');
+  ga('send', 'pageview');
+
+map.options.minzoom = 11;
+map.options.maxzoom = 16;
+</script>
+
 </body>
 </html>
