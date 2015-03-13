@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <script src="snap.svg-min.js"></script>
+
+  <title>Downtown Manhattan Map</title>
+
+</head>
+
+<body>
+<h1>Downtown Manhattan</h1>
+
+<div id="mysvg"></div>
+<div id="neiName"></div>
+
+<script>
+var neiNames = ['#civic_center','#financial_district','#battery_park','#south_street_sea_port','#tribeca','#noho','#west_village','#little_italy','#soho','#west_soho','#nolita','#hudson_square','#central_village','#east_village','#lower_east_side','#two_bridges','#alphabet_city','#chinatown'];
+
+var s = Snap("#mysvg");
+Snap.load("manhattan_downtown.svg", function(f){
+	//var g = f.select("g#layer1");
+	s.append(f);
+	var downtown = s.select('#downtown');
+	neiNames.forEach
+
+
+
+	neiShps = downtown.selectAll('#civic_center, #financial_district, #battery_park, #south_street_sea_port, #tribeca, #noho, #west_village, #little_italy, #soho, #west_soho, #nolita, #hudson_square, #central_village, #east_village, #lower_east_side, #two_bridges, #alphabet_city, #chinatown');
+	neiShps.forEach( function(elem,i) {
+		// change the color on mouse over
+		elem.mouseover(function(){
+			this.attr({"fill-opacity" :"1", "stroke-width":"1.5"});
+			document.getElementById("neiName").innerHTML = this.node.attributes.title.value;
+			});
+		// restore the color on mouse out
+		elem.mouseout(function(){
+			this.attr({"fill-opacity" :"0.4", "stroke-width":"0.6"});
+		});
+	});
+});
+
+// lets suppose that our svg has two elements with ids shape1 and shape2
+// we select them
+// shapes = Snap.selectAll('#civic_center, #financial_district');
+// // and for each one we add the desired interactivity
+// shapes.forEach( function(elem,i) {
+//     // change the color on mouse over
+//     elem.mouseover(function(){
+//         this.attr({fill: "#5385bc"});
+//     });
+//     // restore the color on mouse out
+//     elem.mouseout(function(){
+//         this.attr({fill: "#ffffff"});
+
+    // // open the popup on click or whatever
+    // elem.click(function(){
+    //     // your specific interactivity code here..
+    // });
+//     });
+// });
+
+// neighs = s.selectAll('#civic_center, #financial_district, #battery_park');
+</script>
+
+</body>
+</html>

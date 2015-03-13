@@ -1,0 +1,114 @@
+#ny_neigh_poly {
+    line-color:'black';
+    line-width:0.3;
+    polygon-fill:'red';
+    polygon-opacity:0.75;
+    //comp-op:color-dodge;
+['Neighborho' = 'Civic Center'] { polygon-fill: rgb(120,24,215); }
+['Neighborho' = 'Financial District'] { polygon-fill: rgb(196,232,132); }
+['Neighborho' = 'Battery Park'] { polygon-fill: rgb(88,224,101); }
+['Neighborho' = 'South Street Seaport'] { polygon-fill: rgb(218,30,187); }
+['Neighborho' = 'Tribeca'] { polygon-fill: rgb(179,217,63); }
+['Neighborho' = 'Noho'] { polygon-fill: rgb(34,20,236); }
+['Neighborho' = 'West Village'] { polygon-fill: rgb(34,20,236); }
+['Neighborho' = 'Little Italy'] { polygon-fill: rgb(237,40,33); }
+['Neighborho' = 'Soho'] { polygon-fill: rgb(57,223,146); }
+['Neighborho' = 'West Soho'] { polygon-fill: rgb(218,239,125); }
+['Neighborho' = 'Nolita'] { polygon-fill: rgb(145,232,52); }
+['Neighborho' = 'Hudson Square'] { polygon-fill: rgb(228,200,74); }
+['Neighborho' = 'Central Village'] { polygon-fill: rgb(132,209,119); }
+['Neighborho' = 'East Village'] { polygon-fill: rgb(205,31,69); }
+['Neighborho' = 'Lower East Side'] { polygon-fill: rgb(232,59,108); }
+['Neighborho' = 'Two Bridges'] { polygon-fill: rgb(85,156,217); }
+['Neighborho' = 'Alphabet City'] { polygon-fill: rgb(115,222,185); }
+['Neighborho' = 'Chinatown'] { polygon-fill: rgb(201,186,69); }
+['Neighborho' = 'Chelsea'] { polygon-fill: rgb(201,186,69); }
+['Neighborho' = 'Hells Kitchen'] { polygon-fill: rgb(78,202,204); }
+['Neighborho' = 'Hudson Yards'] { polygon-fill: rgb(207,64,85); }
+['Neighborho' = 'Midtown South'] { polygon-fill: rgb(207,64,85); }
+['Neighborho' = 'NoMad'] { polygon-fill: rgb(239,67,231); }
+['Neighborho' = 'Central Midtown'] { polygon-fill: rgb(38,204,157); }
+['Neighborho' = 'Union Square'] { polygon-fill: rgb(114,174,210); }
+['Neighborho' = 'Garment District'] { polygon-fill: rgb(114,174,210); }
+['Neighborho' = 'Flatiron District'] { polygon-fill: rgb(231,71,154); }
+['Neighborho' = 'Murray Hill'] { polygon-fill: rgb(78,202,213); }
+['Neighborho' = 'Gramercy Park'] { polygon-fill: rgb(19,238,147); }
+['Neighborho' = 'Midtown East'] { polygon-fill: rgb(237,50,216); }
+['Neighborho' = 'Stuyvesant Town / Peter Cooper Village'] { polygon-fill: rgb(201,82,94); }
+['Neighborho' = 'Kips Bay'] { polygon-fill: rgb(207,187,124); }
+['Neighborho' = 'Lincoln Square'] { polygon-fill: rgb(114,41,210); }
+['Neighborho' = 'Upper West Side'] { polygon-fill: rgb(119,191,217); }
+['Neighborho' = 'Yorkville'] { polygon-fill: rgb(130,217,15); }
+['Neighborho' = 'Roosevelt Island'] { polygon-fill: rgb(238,29,126); }
+['Neighborho' = 'Lenox Hill'] { polygon-fill: rgb(121,217,62); }
+['Neighborho' = 'Upper East Side'] { polygon-fill: rgb(209,158,69); }
+['Neighborho' = 'Carnegie Hill'] { polygon-fill: rgb(116,216,66); }
+['Neighborho' = 'Hamilton Heights'] { polygon-fill: rgb(224,101,79); }
+['Neighborho' = 'West Harlem'] { polygon-fill: rgb(127,220,153); }
+['Neighborho' = 'Morningside Heights'] { polygon-fill: rgb(171,83,225); }
+['Neighborho' = 'Central Harlem'] { polygon-fill: rgb(209,215,124); }
+['Neighborho' = 'Upper Carnegie Hill'] { polygon-fill: rgb(100,200,190); }
+['Neighborho' = 'Wards Island'] { polygon-fill: rgb(205,105,220); }
+['Neighborho' = 'East Harlem'] { polygon-fill: rgb(201,154,122); }
+['Neighborho' = 'Museum Mile'] { polygon-fill: rgb(205,105,220); }
+['Neighborho' = 'Washington Heights'] { polygon-fill: rgb(163,45,202); }
+['Neighborho' = 'Inwood'] { polygon-fill: rgb(212,118,213); }
+['Neighborho' = 'Astoria'] { polygon-fill: rgb(212,118,213); }
+['Neighborho' = 'Long Island City'] { polygon-fill: rgb(33,64,218); }
+['Neighborho' = 'Fort Hamilton'] { polygon-fill: rgb(66,114,202); }
+['Neighborho' = 'Dyker Heights'] { polygon-fill: rgb(66,114,202); }
+['Neighborho' = 'Bay Ridge'] { polygon-fill: rgb(217,217,45); }
+['Neighborho' = 'Sheepshead Bay'] { polygon-fill: rgb(210,202,85); }
+['Neighborho' = 'Coney Island'] { polygon-fill: rgb(210,202,85); }
+['Neighborho' = 'Manhattan Beach'] { polygon-fill: rgb(22,220,101); }
+['Neighborho' = 'Brighton Beach'] { polygon-fill: rgb(116,127,210); }
+['Neighborho' = 'Sea Gate'] { polygon-fill: rgb(29,123,222); }
+['Neighborho' = 'Homecrest'] { polygon-fill: rgb(29,123,222); }
+['Neighborho' = 'Gravesend'] { polygon-fill: rgb(83,51,210); }
+['Neighborho' = 'Sunset Park'] { polygon-fill: rgb(167,30,201); }
+['Neighborho' = 'South Slope'] { polygon-fill: rgb(45,42,208); }
+['Neighborho' = 'Windsor Terrace'] { polygon-fill: rgb(194,28,206); }
+['Neighborho' = 'Greenwood Heights'] { polygon-fill: rgb(119,204,138); }
+['Neighborho' = 'Prospect Park South'] { polygon-fill: rgb(155,44,206); }
+['Neighborho' = 'Flatbush'] { polygon-fill: rgb(105,69,213); }
+['Neighborho' = 'Kensington'] { polygon-fill: rgb(22,220,101); }
+['Neighborho' = 'Borough Park'] { polygon-fill: rgb(219,60,16); }
+['Neighborho' = 'Midwood'] { polygon-fill: rgb(208,29,89); }
+['Neighborho' = 'Ocean Parkway'] { polygon-fill: rgb(142,208,238); }
+['Neighborho' = 'Crown Heights South'] { polygon-fill: rgb(202,61,153); }
+['Neighborho' = 'Wingate'] { polygon-fill: rgb(213,74,172); }
+['Neighborho' = 'Prospect Heights'] { polygon-fill: rgb(202,145,70); }
+['Neighborho' = 'Crown Heights'] { polygon-fill: rgb(211,23,167); }
+['Neighborho' = 'Prospect Lefferts Gardens'] { polygon-fill: rgb(136,228,139); }
+['Neighborho' = 'Gowanus'] { polygon-fill: rgb(13,220,110); }
+['Neighborho' = 'Carroll Gardens'] { polygon-fill: rgb(185,204,35); }
+['Neighborho' = 'Cobble Hill'] { polygon-fill: rgb(151,137,240); }
+['Neighborho' = 'Red Hook'] { polygon-fill: rgb(13,25,236); }
+['Neighborho' = 'Park Slope'] { polygon-fill: rgb(50,213,36); }
+['Neighborho' = 'Columbia Street Waterfront District'] { polygon-fill: rgb(225,79,26); }
+['Neighborho' = 'Navy Yard'] { polygon-fill: rgb(78,108,204); }
+['Neighborho' = 'Downtown Brooklyn'] { polygon-fill: rgb(80,123,224); }
+['Neighborho' = 'Boerum Hill'] { polygon-fill: rgb(67,224,198); }
+['Neighborho' = 'Vinegar Hill'] { polygon-fill: rgb(209,176,97); }
+['Neighborho' = 'Fort Greene'] { polygon-fill: rgb(135,223,149); }
+['Neighborho' = 'Clinton Hill'] { polygon-fill: rgb(29,227,181); }
+['Neighborho' = 'Brooklyn Heights'] { polygon-fill: rgb(68,212,16); }
+['Neighborho' = 'Dumbo'] { polygon-fill: rgb(130,17,215); }
+['Neighborho' = 'East Williamsburg'] { polygon-fill: rgb(215,13,20); }
+['Neighborho' = 'Tompkins Park North'] { polygon-fill: rgb(48,228,111); }
+['Neighborho' = 'Bedford Stuyvesant'] { polygon-fill: rgb(209,108,99); }
+['Neighborho' = 'Greenpoint'] { polygon-fill: rgb(76,227,74); }
+['Neighborho' = 'Stuyvesant Heights'] { polygon-fill: rgb(231,174,113); }
+['Neighborho' = 'Williamsburg'] { polygon-fill: rgb(213,81,158); }
+['Neighborho' = 'Bushwick'] { polygon-fill: rgb(230,103,154); }
+}
+
+#ny_neigh_points[zoom > 12] {
+  text-name: '[Neighborho]';
+  text-size: 10;
+  text-face-name: 'Lato Bold';
+  text-placement: point;
+  text-avoid-edges: true;
+  text-halo-radius: 2;
+  text-halo-fill: #ffffff;
+}
