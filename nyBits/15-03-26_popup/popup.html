@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
+<link href='popup.css' rel='stylesheet'/>
+    <title>NYBits Pop-up Map</title>
+    <style>
+
+</style>
+</head>
+<body>
+    
+<div>
+    <img id="thumb_map" src="http://api.tiles.mapbox.com/v4/skualos.kd94ob54/-74.001223,40.725,12/300x200.png?access_token=pk.eyJ1Ijoic2t1YWxvcyIsImEiOiJUaXo3NjNJIn0.MKxvY63QeYiFnj0lCYPmhA">
+</div>
+
+<div id="popup" class="white_content">
+
+    <div id="map">
+        <script src='map_loader2.js'></script>
+    </div>
+
+    <a href = "javascript:void(0)" onclick = "document.getElementById('popup').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+</div>
+
+<div id="fade" class="black_overlay"></div>
+
+<script>
+//window.onload = function(){
+var thumb_map = document.getElementById('thumb_map');
+thumb_map.onclick = function(){
+    document.getElementById('popup').style.display='block';
+    document.getElementById('fade').style.display='block';
+    //console.log('bla');
+}
+
+//};
+
+</script>
+
+</body>
