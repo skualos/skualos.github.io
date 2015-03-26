@@ -15,12 +15,9 @@
 </div>
 
 <div id="popup" class="white_content">
-
     <div id="map">
-        <script src='map_loader2.js'></script>
+        <script src='map_loader.js'></script>
     </div>
-
-    <a href = "javascript:void(0)" onclick = "document.getElementById('popup').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 
 <div id="fade" class="black_overlay"></div>
@@ -31,7 +28,12 @@ var thumb_map = document.getElementById('thumb_map');
 thumb_map.onclick = function(){
     document.getElementById('popup').style.display='block';
     document.getElementById('fade').style.display='block';
+    map.invalidateSize();
     //console.log('bla');
+}
+document.getElementById('fade').onclick = function(){
+    document.getElementById('popup').style.display='none';
+    document.getElementById('fade').style.display='none';
 }
 
 //};
