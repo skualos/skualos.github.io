@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <script src="../snap.svg-min.js"></script>
+
+  <title>Downtown Manhattan</title>
+
+</head>
+
+<body>
+<h1>Downtown Manhattan</h1>
+
+<div id="mysvg"></div>
+<div id="neiName"><br></div>
+
+<script>
+
+var s = Snap();
+Snap.load("downtown_map_03.svg", function(f){
+	//var g = f.select("g#layer1");
+	s.append(f);
+	neighs = s.select('#neighs')
+		.clone()
+		.attr({"fill-opacity" :"0", "stroke-width":"0"});
+	//neighs.attr({"fill-opacity" :"0", "stroke-width":"0"});
+	s.select('#streets').after(neighs);
+	neighHover = neighs.selectAll('*');
+	//streets = s.select('#streets');
+	//neighHover = neighShps.clone();
+	//streets.after(neighHover);
+	neighHover.forEach(function(elem,i) {
+		// change the color on mouse over
+		elem.mouseover(function(){
+			//console.log("over");
+			this.attr({"fill":"#800000", "fill-opacity" :"0.5", "stroke-width":"2", "stroke":"#800000", "stroke-opacity":"1"});
+			document.getElementById("neiName").innerHTML = this.node.attributes[0].value;
+		});
+		// restore the color on mouse out
+		elem.mouseout(function(){
+			this.attr({"fill-opacity":"0","stroke":"#000000","stroke-width":"0"});
+			document.getElementById("neiName").innerHTML = "<br>";
+		});
+	});
+});
+</script>
+
+</body>
+</html>
