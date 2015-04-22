@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+
+// <script>
+
+//     //<![CDATA[
+//     function load() {
+//       if (GBrowserIsCompatible()) {
+
+// var greenicon = new GIcon(G_DEFAULT_ICON);
+// greenicon.image="http://www.google.com/intl/en_us/mapfiles/ms/micons/green-dot.png";
+// greenicon.iconSize=new GSize(32,32);
+
+//         var map = new GMap2(document.getElementById("474_ninth_ave_map"));
+//         map.addControl(new GSmallMapControl());
+//         map.addControl(new GMapTypeControl());
+//         var point = new GLatLng(40.7548198,-73.9948377);
+//         map.setCenter(point, 15);
+//         var marker;
+// marker= new GMarker(point,{clickable: true, title: "474 Ninth Avenue"});
+// GEvent.addListener(marker, "click", function(){window.location="http://www.nybits.com/apartments/474_ninth_ave.html";} );
+// map.addOverlay(marker);
+
+//       }
+//     }
+//     //]]>
+// </script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Area map for 474 Ninth Avenue -- NY Bits</title>
+<style type="text/css">
+body{
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, Sans-serif;
+	font-size: 13px;
+    line-height: 1.3;
+    margin: 0;
+}
+
+a,a:link{color:#000099;}
+a:visited{color:#00003c;}
+a:active{color:#ff0000;}
+a:hover{text-decoration: underline; color: #3399ff;}
+
+h1 {
+  text-align:left;
+  font-family: Verdana;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 0;  
+  margin-top: 3px;
+  color: #000033;
+}
+h2 {
+  text-align:left;
+  font-family: Verdana;
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;  
+  margin: 0;
+  color: #333333;
+}
+h3 {
+  text-align:left;
+  font-family: Verdana;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;  
+  margin: 0;
+  color: #666666;
+}
+
+h2.paddedh2 {
+  font-family: Verdana;
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 6px;
+  padding-bottom: 2px;  
+  margin: 0;
+  color: #333333;
+}
+
+img.subwayline {
+	vertical-align: text-top;
+	padding: 2px 0 0 0;
+}
+img.featureicon {
+	vertical-align: text-top;
+	padding: 2px 1px 0 1px;
+}
+
+img.barpic {
+	padding: 0 0 0 0;
+	height: 10px;
+	margin: 0;
+	border: 0;
+}
+img.greybarpic {
+	width: 700px;
+}
+
+img.logopic {
+	padding: 0; 
+	margin: 0;
+	border: 0;
+}
+
+#centraltable {
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#centraldiv {
+	margin-left: auto; 
+	margin-right: auto; 
+	background-color:#ffffff; 
+	width: 850px; 
+	border-left: 1px #dfdfff solid;
+	border-right: 1px #dfdfff solid;
+}
+#pathdiv {
+	margin: 3px 0 18px 0;
+	padding: 2px; 
+	border-top: 1px #cccccc dotted; 
+	border-bottom: 1px #cccccc dotted; 
+	font-size: 10px; color: #888888; font-weight: bold;
+}
+
+#social_div {
+	width: 290px;
+	margin: 5px 0 5px 0;
+	padding: 2px 5px 2px 5px;
+	text-align: center;
+	background-color: #f3f3f3; 
+	border-top: 1px #cccccc solid; 
+	border-bottom: 1px #cccccc solid; 
+	float: right;
+	overflow: hidden;
+	font-size: 11px;
+	color: #cccccc;
+}
+
+#fp_social_div {
+	width: 291px;
+	height: 20px;
+	padding: 4px;
+	margin: 5px 0 5px 5px;
+	text-align: center;
+	background-color: #eeeeee; 
+	border-top: 1px #cccccc solid; 
+	border-bottom: 1px #cccccc solid; 
+	float: right;
+	overflow: hidden;
+}
+
+
+#directorylinksdiv {
+	padding: 2px;
+}
+#directorylinksdiv a {
+   border: 1px solid #eeeeee;
+   margin: 0px;
+   padding: 3px;
+   text-transform:uppercase;
+}      
+#directorylinksdiv a:hover {
+   border: 1px solid #0000cc;
+}      
+
+div.photostrip {
+	float: right;
+	text-align: center;
+	vertical-align: top; 
+	width: 130px;
+	margin-left: 10px;
+}
+
+.leftcolumntd {
+	width: 120px; 
+	text-align: right; 
+	vertical-align: top; 
+	padding: 0;
+}
+.rightcolumntd {
+	width: 700px; 
+	vertical-align: top; 
+	padding: 0 0 0 10px;
+}
+
+table.twocolumntable {
+	width: 100%;
+	border-collapse: collapse; 
+   	border-spacing: 0px;
+}
+td.leftcolumn {	
+	text-align: left;
+	vertical-align: top; 
+	font-family: Arial, Helvetica, Sans-serif;
+	font-size: 13px;
+}
+
+table.rentalstatstable {
+   	border-spacing: 2px;
+}
+.rentalstatstable td {
+	padding: 2px;
+}
+
+table.searchformtable {
+	border-collapse: collapse;
+	width: 100%;
+}
+.searchformtable td {
+	padding: 4px;
+}
+
+
+table.tab_rental_listing {
+    margin: 12px 0 0 16px;
+	border-spacing:0;
+	border-collapse:collapse;
+}
+.tab_rental_listing td {
+    text-align: left;
+    border-bottom: 1px #ddddff solid;
+}
+
+td.qjheader {
+	vertical-align: top;
+	border-bottom: 1px #000066 solid;
+}
+div.sectionname {
+	font-weight: bold;
+	font-size: 10px;
+	font-family: Verdana;
+	color: #ffffff;
+	background-color: #3399ff;
+	margin-top: 3px;
+	padding-top: 1px;
+	padding-bottom: 1px;	
+	padding-right: 2px;
+}
+div.sectionlinks {
+	padding-top: 3px;
+	padding-bottom: 3px;	
+	padding-right: 0px;
+    line-height: 1.4;
+}
+.sectionlinks a {	
+	text-decoration: none; 
+}
+
+div.announcementdiv {
+	padding: 5px;
+    margin: 0 0 10px 0;
+    background: #ffffee;
+	border: 1px #ffcc00 dotted;
+}
+
+div.rightfloatingad {
+	float: right; padding-left: 10px;
+}
+div.leftfloatingad {
+	float: left; padding-right: 10px;
+}
+
+div.cleanbreakdiv {
+	clear: both;
+	padding: 5px;
+}
+
+div.righthighlightdiv {
+    width: 180px;
+	float: right;
+	padding: 8px;
+	margin: 0px 0px 10px 10px;
+    font-family: Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	background: #daedff;
+}
+
+div.lefthighlightdiv {
+        width: 180px;
+		float: left;
+		padding: 8px;
+		margin: 0px 10px 10px 0px;
+        font-family: Verdana, Helvetica, sans-serif;
+		font-size: 11px;
+		background: #daedff;
+}
+
+
+
+span.highlightedtext {
+	padding: 3px;
+	background: #daedff;
+}
+span.greytext {
+	color: #777777;
+}
+span.nolink {
+	color: #999999;
+}
+p.managerpitch {
+	color: #666666;
+	border-left: 1px #ffaaaa dotted;
+	padding-left: 10px;
+}
+
+
+div.quotedtext {
+	padding: 2px;
+	color: #333333;
+	background-color: #f4f4fa;
+}
+
+#forumlink {
+	margin-top: 20px;
+	color: #999999;
+}
+
+#myaccountnav {
+	float: middle;
+	font-family: Arial;
+	font-size: 13px;
+}
+#myaccountnav a {
+	text-decoration: none;
+	border: 1px #aaaaaa solid;
+	padding: 5px;
+}
+#myaccountnav a:hover {
+	text-decoration: underline; 
+	background-color: #f9f9ff;
+	color: #000066;
+}
+
+
+#logodiv {
+     background-repeat: no-repeat;
+     padding: 14px 0 14px 0;
+     height:32px;
+     font-size: 20pt;
+     font-family: Verdana;
+     font-weight: bold;
+     line-height: 24pt;
+     vertical-align: bottom;
+}
+#logodiv a:hover {
+    color: #ff0000;
+}      
+
+div.photocolumntitle {
+	background-color: #666666;
+	color: #eeeeee;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+#capsuletable 
+{
+      padding: 0px;
+      border-collapse: collapse; 
+      border-spacing: 0px;
+      width: 380px;
+}
+table#capsuletable td {
+  	  vertical-align: top;
+  	  text-align: left;
+	  padding: 2px;
+ 	  border-bottom: 1px #cccccc dotted;
+}    
+
+
+#moreandsocialtable
+{
+    border-collapse: collapse; 
+    border-spacing: 0px;
+	width: 100%;
+}
+table#moreandsocialtable td {
+	width: 50%; 
+	vertical-align: top; 
+}
+
+
+
+table.envelopetable { 
+	table-layout:fixed;
+}
+td.envelopetd {
+	vertical-align: top; 
+}
+
+img.photoimg {
+	padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px #333333 solid;
+}
+img.smallphotoimg {
+    width: 120px;  
+    border: 1px #000066 solid; 
+}
+ul.extlinkslist {
+	list-style-image: url('/images/icons/ext-link.gif');
+}
+ul.archlist {
+	padding: 0; 
+	margin: 0; 
+	list-style-position: inside;
+	list-style-image: url('/images/icons/arch-list.gif');
+}
+
+ul.compactul {
+    font-size: 11px;
+	margin-left: 3px; 
+	padding-left: 1em;
+	padding-top: 1px;
+	text-indent: 0em;
+}
+.compactul li {
+    padding: 0px;
+    margin: 0px;
+} 
+
+
+ul li {
+	padding-top: 1px; padding-bottom: 1px;
+}
+ul.spacyul li {
+	padding-top: 4px; padding-bottom: 4px;
+}
+ul.halfspacyul li {
+	padding-top: 2px; padding-bottom: 2px;
+}
+li.standardli {
+	background-color: #ffffff;
+}
+li.shadedli {
+	background-color: #f4f4fa;
+}
+
+
+td.shadedtd {
+	background-color: #f4f4fa;
+}
+
+
+/* forms */
+
+input[type='checkbox'] { 
+	margin: 1px 5px 1px 1px;
+}
+input[type='radio'] { 
+	margin: 1px 5px 1px 1px;
+}
+
+</style>
+<script type="text/javascript">
+<!-- // JavaScript
+var logo_i_over;
+if(document.images) {
+	logo_i_over=new Image();
+	logo_i_over.src="http://www.nybits.com/images/icons/logo_over.gif";
+}
+
+function x__disableall() { 
+	if(document.images) { 
+		document.images["logo_i"].src="http://www.nybits.com/images/icons/logo.gif";
+	} 
+}
+function x__mouseover(x__n,x__v) {
+	if(document.images) { 	x__disableall(); document.images[x__n].src=x__v.src; }
+}
+// -->
+</script>
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/16693021/NYBits_300x250_ROS', [300, 250], 'div-gpt-ad-1357602231722-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+</head>
+<BODY onload="load()" onunload="GUnload()">
+	<div id="centraldiv">
+
+	<table id="centraltable">
+	<tr>
+		<td class="leftcolumntd"><img alt="" class="barpic"  src="http://www.nybits.com/images/icons/left-bar.gif"></td>
+		<td class="rightcolumntd"><img alt="" class="barpic greybarpic"  src="http://www.nybits.com/images/icons/utl_gry1px.gif"></td>
+	</tr>
+
+	<tr>
+		<td class="leftcolumntd">		
+		<div id="logodiv"><a href="http://www.nybits.com/" onMouseOver="x__mouseover(&quot;logo_i&quot;,logo_i_over)" onMouseOut="x__disableall()"><img alt="NY Bits" class="logopic" name="logo_i"  src="http://www.nybits.com/images/icons/logo.gif"></a></div>
+		</td>
+
+		<td class="rightcolumntd">
+		
+		<table style="table-layout: fixed;">
+		<tr><td style="width: 490px; vertical-align: middle; text-align: left;">
+
+ <h1>Area map for 474 Ninth Avenue</h1>		&nbsp;
+		</td>
+		<td style="width: 200px; vertical-align: middle; text-align: center; padding-top: 2px;">			
+<div id="myaccountnav"> <a href="http://www.nybits.com/nyc/nyb?_ust_todo_=65630&amp;_rid_=12&amp;_xid_=4S5f3IUhrIZvqW-1252336232&amp;">my account</a> </div>		</td>
+		</tr>
+		</table>		
+
+		</td>	
+		</tr>
+		<!-- /header nav -->
+<!--DANCE FLOOR ROW-->
+<tr>	
+	<!--NAV COL-->
+	<td class="leftcolumntd">
+<div class="sectionname">
+APARTMENTS
+</div>
+<div class="sectionlinks">
+ <a href="http://www.nybits.com/search/">Search Rentals</a>
+</div>
+
+<br>
+<div class="sectionname">
+BUILDINGS
+</div>
+<div class="sectionlinks">
+ <a href="http://www.nybits.com/apartments.html">Rental Buildings</a><br>
+ <a href="http://www.nybits.com/condos.html">Condo Buildings</a><br>
+ <a href="http://www.nybits.com/coops.html">Co-op Buildings</a><br>
+</div>
+
+<br>
+<div class="sectionname">
+COMPANIES ETC
+</div>
+<div class="sectionlinks">
+ <a href="http://www.nybits.com/managers/residential_property_managers.html">Property Managers</a><br>
+ <a href="http://www.nybits.com/brokerages.html">Brokerage Firms</a><br>
+ <a href="http://www.nybits.com/brokers.html">Individual Brokers</a><br>
+</div>
+
+
+<br>
+<div class="sectionname">
+NEIGHBORHOODS
+</div>
+<div class="sectionlinks">
+ <a href="http://www.nybits.com/manhattan/">Manhattan</a><br>
+ <a href="http://www.nybits.com/brooklyn/">Brooklyn</a><br>
+ <a href="http://www.nybits.com/queens/">Queens</a><br>
+ <a href="http://www.nybits.com/bronx/">The Bronx</a><br>
+ <a href="http://www.nybits.com/staten_island/">SI</a>  <a href="http://www.nybits.com/new_jersey/">NJ</a>
+</div>
+
+<br>
+
+</td>
+
+<td class="rightcolumntd">
+<div id="pathdiv"><a href="http://www.nybits.com/">NY Bits</a> &raquo; <a href="http://www.nybits.com/apartments.html">Rental Buildings</a> &raquo; <a href="http://www.nybits.com/apartments/garment_district_rental_buildings.html">Garment District Rental Apartment Buildings</a> &raquo; <a href="http://www.nybits.com/apartments/474_ninth_ave.html">474 Ninth Avenue</a> &raquo; Area Map</div><table class="envelopetable"><tr><td class="envelopetd" style="width: 390px;"><table id="capsuletable">
+<tr><td style="width: 120px;"><b>Address</b>:&nbsp; </td><td>474 Ninth Avenue <a href="http://www.nybits.com/apartments/map/474_ninth_ave_map.html">(map)</a><br>New York, NY 10018</td></tr>
+<tr><td style="width: 120px;"><b>Neighborhood</b>:&nbsp; </td><td><a href="http://www.nybits.com/manhattan/garment_district/">Garment District</a>, <a href="http://www.nybits.com/manhattan/">Manhattan</a>;<br><a href="http://www.nybits.com/manhattan/hudson_yards/">Hudson Yards</a>, <a href="http://www.nybits.com/manhattan/">Manhattan</a>;<br><a href="http://www.nybits.com/manhattan/midtown_south/">Midtown South</a>, <a href="http://www.nybits.com/manhattan/">Manhattan</a></td></tr>
+<tr><td style="width: 120px;"><b>Year Built</b>:&nbsp; </td><td>1910</td></tr>
+<tr><td style="width: 120px;"><b>Structure</b>:&nbsp; </td><td>5 floors, 14 apartment units</td></tr></table></td><td class="envelopetd" style="width: 300px; padding-left: 10px;"><!-- NYBits_300x250_ROS -->
+<div id='div-gpt-ad-1357602231722-0' style='width:300px; height:250px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1357602231722-0'); });
+</script>
+</div>
+<div id="social_div">&#8593; advertisement</div></td></tr></table><div id="474_ninth_ave_map" style="width: 698px; height: 500px; border: 1px #6666cc solid;"></div><p>The area map for <a href="http://www.nybits.com/apartments/474_ninth_ave.html">474 Ninth Avenue</a>  (474 Ninth Avenue, New York, NY 10018) </p>	<br><br>
+	</td></tr>	
+
+	<tr>
+		<td class="leftcolumntd"><img alt="" class="barpic"  src="http://www.nybits.com/images/icons/left-bar.gif"></td>
+		<td class="rightcolumntd"><img alt="" class="barpic greybarpic"  src="http://www.nybits.com/images/icons/utl_gry1px.gif"></td>	
+	</tr>	
+
+	<tr>
+		<td class="leftcolumntd">
+			<div style="color: #999999; font-size: 10px; text-align: right; vertical-align: top; padding: 2px;">
+				&copy;2005-2014 Gromco
+			</div>
+		</td>
+		<td class="rightcolumntd">
+			<div style="color: #999999; font-size: 10px; text-align: left; vertical-align: top; padding: 2px;">
+<a href="http://www.nybits.com/add.html">Post Your Rental(s)</a>  |
+<a href="http://www.nybits.com/advertise.html">Advertise</a>  |
+<a href="http://www.nybits.com/contact.html">Contact Us</a>  |
+<a href="http://www.nybits.com/privacy_policy.html">Privacy Policy</a> |
+<a href="http://www.nybits.com/terms.html">Terms of Use</a>  
+			</div>
+		</td>	
+	</tr>	
+
+	</table>
+	<!-- centraltable -->
+
+</div>
+<!-- centraldiv -->
+
+
+   
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1215429-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+<!-- Start Quantcast tag -->
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<script type="text/javascript">_qacct="p-449hLRCVQrUcc";quantserve();</script>
+<noscript>
+<a href="http://www.quantcast.com/p-449hLRCVQrUcc" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-449hLRCVQrUcc.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"></a>
+</noscript>
+<!-- End Quantcast tag -->
+
+<script>	
+L.mapbox.accessToken = 'pk.eyJ1Ijoic2t1YWxvcyIsImEiOiJUaXo3NjNJIn0.MKxvY63QeYiFnj0lCYPmhA';
+var map = L.mapbox.map('474_ninth_ave_map').setView([40.7548198,-73.9948377], 15);
+
+var stamenTonerLayer = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.',
+ }).addTo(map);
+
+// L.tileLayer(
+//         'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//         attribution: 'Map data &copy; ' + mapLink,
+//         maxZoom: 18,
+//         }).addTo(map);
+
+var marker = new L.marker([40.7548198,-73.9948377],{title: '474 Ninth Avenue'}).addTo(map);
+marker.on('click', function(){
+	window.location="http://www.nybits.com/apartments/474_ninth_ave.html";
+});
+</script>
+
+</body>
+</html>
