@@ -149,7 +149,8 @@
 		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
 		var bing = new L.BingLayer("ArZHrCla3mErkQz22GOa9ZrADoXDRkCb8M54PC7tw2mzixlwyXu6VT-rItYDwNK4", {type: "Aerial"});
 		map.addLayer(bing);
-		//map.addControl(new L.Control.Layers({'OSM':osm, "Bing":bing}, {}));
+		var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+		map.addControl(new L.Control.Layers({'OSM':osm, "Bing":bing}, {}));
 	</script>
 </body>
 </html>
