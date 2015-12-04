@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gundabooka</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<link rel="stylesheet" type="text/css" href="css/own_style.css">
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="js/leaflet-hash.js"></script>
+		<script src="js/Autolinker.min.js"></script>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src="data/exp_00917.js"></script>
+		<script>
+		var map = L.map('map', {
+			zoomControl:true, maxZoom:19
+		}).fitBounds([[-30.5767849702,145.352163796],[-30.3227962455,145.737068239]]);
+		var hash = new L.Hash(map);
+		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
+		var feature_group = new L.featureGroup([]);
+		var raster_group = new L.LayerGroup([]);	
+		var layerOrder=new Array();
+		function pop_00917(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">TAG</th><td>' + Autolinker.link(String(feature.properties['TAG'])) + '</td></tr><tr><th scope="row">MAPUNIT</th><td>' + Autolinker.link(String(feature.properties['MAPUNIT'])) + '</td></tr><tr><th scope="row">DESCRIPTIO</th><td>' + Autolinker.link(String(feature.properties['DESCRIPTIO'])) + '</td></tr><tr><th scope="row">LANDCOVER</th><td>' + Autolinker.link(String(feature.properties['LANDCOVER'])) + '</td></tr><tr><th scope="row">DENSITY</th><td>' + Autolinker.link(String(feature.properties['DENSITY'])) + '</td></tr><tr><th scope="row">A_GENUS1</th><td>' + Autolinker.link(String(feature.properties['A_GENUS1'])) + '</td></tr><tr><th scope="row">A_SPECIES1</th><td>' + Autolinker.link(String(feature.properties['A_SPECIES1'])) + '</td></tr><tr><th scope="row">A_GENUS2</th><td>' + Autolinker.link(String(feature.properties['A_GENUS2'])) + '</td></tr><tr><th scope="row">A_SPECIES2</th><td>' + Autolinker.link(String(feature.properties['A_SPECIES2'])) + '</td></tr><tr><th scope="row">A_GENUS3</th><td>' + Autolinker.link(String(feature.properties['A_GENUS3'])) + '</td></tr><tr><th scope="row">A_SPECIES3</th><td>' + Autolinker.link(String(feature.properties['A_SPECIES3'])) + '</td></tr><tr><th scope="row">A_MIX</th><td>' + Autolinker.link(String(feature.properties['A_MIX'])) + '</td></tr><tr><th scope="row">A_GFO</th><td>' + Autolinker.link(String(feature.properties['A_GFO'])) + '</td></tr><tr><th scope="row">A_GENUSU</th><td>' + Autolinker.link(String(feature.properties['A_GENUSU'])) + '</td></tr><tr><th scope="row">A_GFU</th><td>' + Autolinker.link(String(feature.properties['A_GFU'])) + '</td></tr><tr><th scope="row">B_GENUS1</th><td>' + Autolinker.link(String(feature.properties['B_GENUS1'])) + '</td></tr><tr><th scope="row">B_SPECIES1</th><td>' + Autolinker.link(String(feature.properties['B_SPECIES1'])) + '</td></tr><tr><th scope="row">B_GENUS2</th><td>' + Autolinker.link(String(feature.properties['B_GENUS2'])) + '</td></tr><tr><th scope="row">B_SPECIES2</th><td>' + Autolinker.link(String(feature.properties['B_SPECIES2'])) + '</td></tr><tr><th scope="row">B_GENUS3</th><td>' + Autolinker.link(String(feature.properties['B_GENUS3'])) + '</td></tr><tr><th scope="row">B_SPECIES3</th><td>' + Autolinker.link(String(feature.properties['B_SPECIES3'])) + '</td></tr><tr><th scope="row">B_MIX</th><td>' + Autolinker.link(String(feature.properties['B_MIX'])) + '</td></tr><tr><th scope="row">B_GFO</th><td>' + Autolinker.link(String(feature.properties['B_GFO'])) + '</td></tr><tr><th scope="row">B_GENUSU</th><td>' + Autolinker.link(String(feature.properties['B_GENUSU'])) + '</td></tr><tr><th scope="row">B_GFU</th><td>' + Autolinker.link(String(feature.properties['B_GFU'])) + '</td></tr><tr><th scope="row">C_GENUS1</th><td>' + Autolinker.link(String(feature.properties['C_GENUS1'])) + '</td></tr><tr><th scope="row">C_SPECIES1</th><td>' + Autolinker.link(String(feature.properties['C_SPECIES1'])) + '</td></tr><tr><th scope="row">C_GENUS2</th><td>' + Autolinker.link(String(feature.properties['C_GENUS2'])) + '</td></tr><tr><th scope="row">C_SPECIES2</th><td>' + Autolinker.link(String(feature.properties['C_SPECIES2'])) + '</td></tr><tr><th scope="row">C_GENUS3</th><td>' + Autolinker.link(String(feature.properties['C_GENUS3'])) + '</td></tr><tr><th scope="row">C_SPECIES3</th><td>' + Autolinker.link(String(feature.properties['C_SPECIES3'])) + '</td></tr><tr><th scope="row">C_MIX</th><td>' + Autolinker.link(String(feature.properties['C_MIX'])) + '</td></tr><tr><th scope="row">C_GFO</th><td>' + Autolinker.link(String(feature.properties['C_GFO'])) + '</td></tr><tr><th scope="row">C_GENUSU</th><td>' + Autolinker.link(String(feature.properties['C_GENUSU'])) + '</td></tr><tr><th scope="row">C_GFU</th><td>' + Autolinker.link(String(feature.properties['C_GFU'])) + '</td></tr><tr><th scope="row">CASE1_</th><td>' + Autolinker.link(String(feature.properties['CASE1_'])) + '</td></tr><tr><th scope="row">CASE2_</th><td>' + Autolinker.link(String(feature.properties['CASE2_'])) + '</td></tr><tr><th scope="row">AUTHOR</th><td>' + Autolinker.link(String(feature.properties['AUTHOR'])) + '</td></tr><tr><th scope="row">SHAPE_Leng</th><td>' + Autolinker.link(String(feature.properties['SHAPE_Leng'])) + '</td></tr><tr><th scope="row">Shape_Le_1</th><td>' + Autolinker.link(String(feature.properties['Shape_Le_1'])) + '</td></tr><tr><th scope="row">Shape_Area</th><td>' + Autolinker.link(String(feature.properties['Shape_Area'])) + '</td></tr><tr><th scope="row">veg_type</th><td>' + Autolinker.link(String(feature.properties['veg_type'])) + '</td></tr><tr><th scope="row">main_sp</th><td>' + Autolinker.link(String(feature.properties['main_sp'])) + '</td></tr><tr><th scope="row">label</th><td>' + Autolinker.link(String(feature.properties['label'])) + '</td></tr><tr><th scope="row">include</th><td>' + Autolinker.link(String(feature.properties['include'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyle00917(feature) {
+			switch (feature.properties.include) {
+				default:
+					return {
+						weight: '1.3',
+						fillColor: '#ffffff',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.450980392157',
+						fillOpacity: '0.450980392157',
+					};
+					break;
+				default:
+					return {
+						weight: '1.3',
+						fillColor: '#e31a1c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.450980392157',
+						fillOpacity: '0.450980392157',
+					};
+					break;
+				case 1:
+					return {
+						weight: '1.3',
+						fillColor: '#b2df8a',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.419607843137',
+						fillOpacity: '0.419607843137',
+					};
+					break;
+			}
+		}
+		var exp_00917JSON = new L.geoJson(exp_00917,{
+			onEachFeature: pop_00917,
+			style: doStyle00917
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_00917JSON);
+		var img_19892014anyForest= 'data/exp_19892014anyForest.png';
+		var img_bounds_19892014anyForest = [[-32.0,144.0],[-28.0,150.0]];
+		var overlay_19892014anyForest = new L.imageOverlay(img_19892014anyForest, img_bounds_19892014anyForest).addTo(map);
+		raster_group.addLayer(overlay_19892014anyForest);
+
+		feature_group.addTo(map);
+		var title = new L.Control();
+		title.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		title.update = function () {
+			this._div.innerHTML = '<h2>This is the title</h2>This is the subtitle'
+		};
+		title.addTo(map);
+		L.control.layers({},{"19892014anyForest": overlay_19892014anyForest,"00917": exp_00917JSON},{collapsed:false}).addTo(map);
+		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+	</script>
+</body>
+</html>
