@@ -4,13 +4,15 @@
 	<meta charset=utf-8 />
 	<title>A cor de Sampa | RacialDotMap-Br</title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
-  <script src='tileJSONlayers.js'></script>
-  <script src='ZoomDisplay.js'></script>
-	<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
-  <link href='ZoomDisplay.css' rel='stylesheet' />
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
 	<link href='etnomapaSP.css' rel='stylesheet' />
-  <link href='http://fonts.googleapis.com/css?family=Fredoka+One&text=A Cor de Sampa' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Fredoka+One&text=A Cor de Sampa' rel='stylesheet' type='text/css'>
+	<script src='tileJSONlayers.js'></script>
+<!--
+	<script src='ZoomDisplay.js'></script>
+	<link href='ZoomDisplay.css' rel='stylesheet' />
+-->
 </head>
 
 <body>
@@ -38,7 +40,7 @@ var overlays = {"Pontos": pontosExtTiles};
 
 // ADICIONAR AO MAPA
 
-var map = L.mapbox.map('map', {minZoom: 11, maxZoom: 16});
+var map = L.mapbox.map('map', null, {minZoom: 11, maxZoom: 16});
 map.addLayer(mapboxStreetTiles);
 map.addLayer(pontosExtTiles);
 map.setView([-23.6266,-46.67],11);
@@ -78,7 +80,8 @@ title.onAdd = function (map) {
   return div;
 };
 title.addTo(map);
-
+map.options.minzoom = 11;
+map.options.maxzoom = 16;
 </script>
 
 
@@ -90,9 +93,6 @@ title.addTo(map);
 
   ga('create', 'UA-56779996-1', 'auto');
   ga('send', 'pageview');
-
-map.options.minzoom = 11;
-map.options.maxzoom = 16;
 </script>
 
 </body>
