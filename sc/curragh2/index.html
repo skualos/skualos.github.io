@@ -67,7 +67,7 @@
         }
 
         function doStyle23landsys9170(feature) {
-			switch (feature.properties.potential) {
+            switch (feature.properties.potential) {
                 case 0:
                     return {
                     weight: '1.04',
@@ -137,9 +137,11 @@
         }
         
         var myStyle = {
-        	"color": "#000000",
-        	"weight": 1,
-        	"opacity": 1
+            "color": "#000000",
+            "weight": 1,
+            "opacity": 1,
+            "fillColor": "#ffffff",
+            "fillOpacity": "0",
         };
         var img_00curraghbl00100 = 'data/json_00curraghbl00100.png';
         var img_bounds_00curraghbl00100 = [[-29.86725,145.25075],[-29.75025,145.43525]];
@@ -158,7 +160,7 @@
         feature_group.addTo(map);
         var baseMaps = {'Bing': bing_sat};
         L.control.layers(baseMaps,
-        	{'Potential<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_0.png" /> 0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_1.png" /> 1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_2.png" /> 2<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_3.png" /> 3<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_.png" /> <br />': json_23landsys9170JSON, 'Potential':json_23landsys9170JSON2,"Bline forested 00-10": overlay_00curraghbl00100, },{collapsed:false}).addTo(map);
+            {'Potential<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_0.png" /> 0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_1.png" /> 1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_2.png" /> 2<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_3.png" /> 3<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/23landsys9170_.png" /> <br />': json_23landsys9170JSON, 'Potential':json_23landsys9170JSON2,"Bline forested 00-10": overlay_00curraghbl00100, },{collapsed:false}).addTo(map);
         stackLayers();
         map.on('overlayadd', restackLayers);
         </script>
