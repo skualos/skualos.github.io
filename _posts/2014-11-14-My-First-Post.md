@@ -1,6 +1,7 @@
 ---
 layout: post
 title: My first post
+published: false
 ---
 
 I've been wanting to create a blog for some time. Now that I finished my GIS master's degree at [Lisbon's University Faculty of Science](http://www.fc.ul.pt){:target="_blank"} I have a little more time available for that.

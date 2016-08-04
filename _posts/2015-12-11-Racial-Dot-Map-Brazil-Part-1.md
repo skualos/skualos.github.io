@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Racial Dot Map Brazil - Part 1
+published: false
 ---
 
 I really liked the way that the [Racial Dot Map](http://www.coopercenter.org/demographics/Racial-Dot-Map){:target="_blank"}, created by [Dustin Cable](https://twitter.com/cableondemandmade){:target="_blank"} at the  [Weldon Cooper Center for Public Service](http://www.coopercenter.org/){:target="_blank"} (Univeristy of Virginia) alows to spatially visualize population density and etnic distribution over the territory.
