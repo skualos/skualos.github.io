@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/label.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <script src="js/leaflet.js"></script>
+        <script src="js/OSMBuildings-Leaflet.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/label.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="../Bing.js"></script>
+        <style>
+        #map {
+            width: 1007px;
+            height: 751px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="data/json_30exclusions0.js"></script>
+        <script src="data/json_01midenstation1.js"></script>
+        <script>
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-30.7761838092,145.477743564],[-30.6150510166,145.693949781]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var feature_group = new L.featureGroup([]);
+        var bounds_group = new L.featureGroup([]);
+        var raster_group = new L.LayerGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        var initialOrder = new Array();
+        var layerOrder = new Array();
+        function stackLayers() {
+            for (index = 0; index < initialOrder.length; index++) {
+                map.removeLayer(initialOrder[index]);
+                map.addLayer(initialOrder[index]);
+            }
+        }
+        function restackLayers() {
+            for (index = 0; index < layerOrder.length; index++) {
+                layerOrder[index].bringToFront();
+            }
+        }
+        layerControl = L.control.layers({},{},{collapsed:false});
+        function pop_30exclusions0(feature, layer) {
+            var popupContent = '<table><tr><td colspan="2">' + (feature.properties['Type'] !== null ? Autolinker.link(String(feature.properties['Type'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['AREA-HA'] !== null ? Autolinker.link(String(feature.properties['AREA-HA'])) : '') + '</td></tr></table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function doStyle30exclusions0(feature) {
+            return {
+                weight: 1.04,
+                color: '#000000',
+                fillColor: '#4e80cb',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                opacity: 0.298039215686,
+                fillOpacity: 0.298039215686
+            };
+        }
+        var json_30exclusions0JSON = new L.geoJson(json_30exclusions0, {
+            onEachFeature: pop_30exclusions0,
+            style: doStyle30exclusions0
+        });
+        layerOrder[layerOrder.length] = json_30exclusions0JSON;
+        bounds_group.addLayer(json_30exclusions0JSON);
+        initialOrder[initialOrder.length] = json_30exclusions0JSON;
+        feature_group.addLayer(json_30exclusions0JSON);
+        function pop_01midenstation1(feature, layer) {
+            var popupContent = '<table><tr><td colspan="2">' + (feature.properties['planlabel'] !== null ? Autolinker.link(String(feature.properties['planlabel'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['lotnumber'] !== null ? Autolinker.link(String(feature.properties['lotnumber'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['AREA-HA'] !== null ? Autolinker.link(String(feature.properties['AREA-HA'])) : '') + '</td></tr></table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function doStyle01midenstation1(feature) {
+            return {
+                weight: 1.84,
+                color: '#1f78b4',
+                fillColor: '#ffffff',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                opacity: 1.0,
+                fillOpacity: 0.0
+            };
+        }
+        var json_01midenstation1JSON = new L.geoJson(json_01midenstation1, {
+            onEachFeature: pop_01midenstation1,
+            style: doStyle01midenstation1
+        });
+        
+
+        var bing_sat = new L.BingLayer(
+            "ArZHrCla3mErkQz22GOa9ZrADoXDRkCb8M54PC7tw2mzixlwyXu6VT-rItYDwNK4", 
+            {type: "Aerial"});
+        bing_sat.addTo(map);
+
+        layerOrder[layerOrder.length] = json_01midenstation1JSON;
+        bounds_group.addLayer(json_01midenstation1JSON);
+        initialOrder[initialOrder.length] = json_01midenstation1JSON;
+        feature_group.addLayer(json_01midenstation1JSON);
+        raster_group.addTo(map);
+        feature_group.addTo(map);
+        var baseMaps = {'OSM': basemap0, 'Bing' : bing_sat};
+        L.control.layers(baseMaps,{'<img src="legend/01midenstation1.png" /> 01_miden_station': json_01midenstation1JSON,'<img src="legend/30exclusions0.png" /> 30_exclusions': json_30exclusions0JSON,},{collapsed:false}).addTo(map);
+        stackLayers();
+        map.on('overlayadd', restackLayers);
+        </script>
+    </body>
+</html>
