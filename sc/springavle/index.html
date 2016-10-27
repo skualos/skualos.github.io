@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-heat.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/OSMBuildings-Leaflet.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="../Bing.js"></script>
+        <style>
+        #map {
+            width: 904px;
+            height: 734px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="data/json_Smoothed0.js"></script>
+        <script src="data/json_10springvale1.js"></script>
+        <script>
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-22.8639804439,146.841244371],[-22.6208028878,147.140897589]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var feature_group = new L.featureGroup([]);
+        var bounds_group = new L.featureGroup([]);
+        var raster_group = new L.LayerGroup([]);
+        function setBounds() {
+        }
+        function geoJson2heat(geojson, weight) {
+          return geojson.features.map(function(feature) {
+            return [
+              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[0],
+              feature.properties[weight]
+            ];
+          });
+        }
+        function pop_Smoothed0(feature, layer) {
+            var popupContent = '<table><tr><td colspan="2">' + (feature.properties['a_cat'] !== null ? Autolinker.link(String(feature.properties['a_cat'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['a_LOTPLAN'] !== null ? Autolinker.link(String(feature.properties['a_LOTPLAN'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['a_AREA_HA'] !== null ? Autolinker.link(String(feature.properties['a_AREA_HA'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['b_cat'] !== null ? Autolinker.link(String(feature.properties['b_cat'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['b_value'] !== null ? Autolinker.link(String(feature.properties['b_value'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['b_label'] !== null ? Autolinker.link(String(feature.properties['b_label'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['vertices'] !== null ? Autolinker.link(String(feature.properties['vertices'])) : '') + '</td></tr></table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function doStyleSmoothed0(feature) {
+            return {
+                weight: 1.04,
+                color: '#000000',
+                fillColor: '#a6cee3',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                opacity: 1.0,
+                fillOpacity: 0.701960784314
+            };
+        }
+        map.createPane('pane_Smoothed0');
+        map.getPane('pane_Smoothed0').style.zIndex = 601;
+        var json_Smoothed0JSON = new L.geoJson(json_Smoothed0, {
+            pane: 'pane_Smoothed0',
+            onEachFeature: pop_Smoothed0,
+            style: doStyleSmoothed0
+        });
+        bounds_group.addLayer(json_Smoothed0JSON);
+        feature_group.addLayer(json_Smoothed0JSON);
+        function pop_10springvale1(feature, layer) {
+            var popupContent = '<table><tr><td colspan="2">' + (feature.properties['LOTPLAN'] !== null ? Autolinker.link(String(feature.properties['LOTPLAN'])) : '') + '</td></tr><tr><td colspan="2">' + (feature.properties['AREA-HA'] !== null ? Autolinker.link(String(feature.properties['AREA-HA'])) : '') + '</td></tr></table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function doStyle10springvale1(feature) {
+            return {
+                weight: 1.04,
+                color: '#000000',
+                fillColor: '#ffffff',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                opacity: 1.0,
+                fillOpacity: 0.0
+            };
+        }
+
+        var bing_sat = new L.BingLayer(
+            "ArZHrCla3mErkQz22GOa9ZrADoXDRkCb8M54PC7tw2mzixlwyXu6VT-rItYDwNK4", 
+            {type: "Aerial"});
+        bing_sat.addTo(map);
+                
+        map.createPane('pane_10springvale1');
+        map.getPane('pane_10springvale1').style.zIndex = 602;
+        var json_10springvale1JSON = new L.geoJson(json_10springvale1, {
+            pane: 'pane_10springvale1',
+            onEachFeature: pop_10springvale1,
+            style: doStyle10springvale1
+        });
+        bounds_group.addLayer(json_10springvale1JSON);
+        feature_group.addLayer(json_10springvale1JSON);
+        raster_group.addTo(map);
+        feature_group.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/10springvale1.png" /> 10_springvale': json_10springvale1JSON,'<img src="legend/Smoothed0.png" /> Smoothed': json_Smoothed0JSON,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
