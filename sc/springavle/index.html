@@ -20,8 +20,8 @@
         <script src="../Bing.js"></script>
         <style>
         #map {
-            width: 904px;
-            height: 734px;
+            width: 100%;
+            height: 100%;
         }
         </style>
         <title></title>
@@ -104,7 +104,7 @@
             "ArZHrCla3mErkQz22GOa9ZrADoXDRkCb8M54PC7tw2mzixlwyXu6VT-rItYDwNK4", 
             {type: "Aerial"});
         bing_sat.addTo(map);
-                
+
         map.createPane('pane_10springvale1');
         map.getPane('pane_10springvale1').style.zIndex = 602;
         var json_10springvale1JSON = new L.geoJson(json_10springvale1, {
