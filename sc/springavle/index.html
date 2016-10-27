@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="css/leaflet.css" />
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/MarkerCluster.css" />
@@ -20,8 +20,8 @@
         <script src="../Bing.js"></script>
         <style>
         #map {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
         }
         </style>
         <title></title>
@@ -119,6 +119,7 @@
         var baseMaps = {};
         L.control.layers(baseMaps,{'<img src="legend/10springvale1.png" /> 10_springvale': json_10springvale1JSON,'<img src="legend/Smoothed0.png" /> Smoothed': json_Smoothed0JSON,},{collapsed:false}).addTo(map);
         setBounds();
+        map.locate({setView: true, maxZoom: 16});
         </script>
     </body>
 </html>
